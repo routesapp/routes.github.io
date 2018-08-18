@@ -568,6 +568,11 @@ nav a, button {
 button {
   border: none;
 }
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
 .popup-comment-container {
   display: flex;
   padding-left: 10px;
