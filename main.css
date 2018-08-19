@@ -83,7 +83,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -462,14 +463,9 @@ a.leaflet-popup-close-button {
     top: 0;
     width: 75px;
     height: 100%;
-    background: -moz-linear-gradient(left, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
-    background: -webkit-linear-gradient(left, rgba(146, 173, 148,0.0) 0%, rgba(146,173,148,0.5) 47%, rgba(146, 173, 148, 1) 100%);
-    background: -o-linear-gradient(left, rgba(146, 173, 148,0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
-    background: -ms-linear-gradient(left, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
     background: linear-gradient(to right, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
     visibility: visible;
     opacity: 1;
-    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
     transition: opacity .3s 0s, visibility 0s 0s;
   }
 
@@ -477,7 +473,6 @@ a.leaflet-popup-close-button {
     /* class added in JavaScript - remove the gradient layer when it's no longer possible to scroll */
     visibility: hidden;
     opacity: 0;
-    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
     transition: opacity .3s 0s, visibility 0s .3s;
   }
 }.image-section-wrapper {
@@ -567,11 +562,6 @@ nav a, button {
 
 button {
   border: none;
-}
-
-#root {
-  height: 100vh;
-  width: 100%;
 }
 .popup-comment-container {
   display: flex;
@@ -712,7 +702,6 @@ background-color:#C3D2C4;
 }
 
 ::-webkit-scrollbar-thumb {
--webkit-border-radius: 0px;
 border-radius: 0px;
 /* background-color:#6dc0c8; */
 background-color: #0B3142;
@@ -813,21 +802,7 @@ width: 7px;
     border: 2px solid rgba(146, 173, 148, 0.8);
     border-radius: 50%;
   }
-} */.logo-button {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  z-index: 1000;
-  background: transparent;
-}
-
-/* Media queries */
-@media (max-width: 500px) {
-  .logo-button {
-    width: 70px;
-  }
-}
-.leaflet-control-layers {
+} */.leaflet-control-layers {
   background-color: rgba(146, 173, 148, 0.5) !important;
   border: 2px solid #0B3142 !important;
   width: 100px !important;
@@ -892,6 +867,20 @@ width: 7px;
 }.leaflet-container {
   height: 100vh;
   width: 100%;
+}
+.logo-button {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1000;
+  background: transparent;
+}
+
+/* Media queries */
+@media (max-width: 500px) {
+  .logo-button {
+    width: 70px;
+  }
 }
 /* Customize Leaflet zoom-control default styles */
 
