@@ -526,18 +526,18 @@ a.leaflet-popup-close-button {
   border: 1px solid blue;
 }@font-face {
   font-family: 'Montserrat';
-  src: url(/9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
-    url(/419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
-    url(/81f639a8d864932fdecff26eabec1f67.woff2) format("woff2"); /* Modern Browsers */
+  src: url(9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
+    url(419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
+    url(81f639a8d864932fdecff26eabec1f67.woff2) format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url(/c88cecbffad6d8e731fd95de49561ebd.ttf) format("truetype"), 
-    url(/8476208859e8bea2d2687dec44807356.woff) format("woff"), 
-    url(/6a82de9da3cefed185e62e80089736b1.woff2) format("woff2"); /* Modern Browsers */
+  src: url(c88cecbffad6d8e731fd95de49561ebd.ttf) format("truetype"), 
+    url(8476208859e8bea2d2687dec44807356.woff) format("woff"), 
+    url(6a82de9da3cefed185e62e80089736b1.woff2) format("woff2"); /* Modern Browsers */
   font-weight: 600;
   font-style: normal;
 }
@@ -852,7 +852,7 @@ width: 7px;
 }
 
 .leaflet-retina .leaflet-control-layers-toggle {
-  background-image: url(/src/components/images/show-on-map-icon-v1.svg) !important;
+  background-image: url(src/components/images/show-on-map-icon-v1.svg) !important;
   background-size: 60px 60px !important;
 }
 
