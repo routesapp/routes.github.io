@@ -380,7 +380,26 @@ a.leaflet-popup-close-button {
   font-weight: 700;
   color: #1C2833;
 }
-.add-comment-button {
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #92AD94;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color:  #2F2235; */
+  /* color: #262730; */
+  /* color: #36558F; */
+  color: #0B3142;
+}
+
+.add-button-img {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}.add-comment-button {
   cursor: pointer;
   font-size: 10px;
   display: flex;
@@ -494,25 +513,6 @@ a.leaflet-popup-close-button {
     padding-right: 5px !important;
     font-size: 0.95em !important;
   }
-}.add-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #92AD94;
-  cursor: pointer;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  text-transform: uppercase;
-  /* color:  #2F2235; */
-  /* color: #262730; */
-  /* color: #36558F; */
-  color: #0B3142;
-}
-
-.add-button-img {
-  margin-right: 5px;
-  width: 30px;
-  height: 30px;
 }.additional-section-wrapper {
   display: flex;
   width: 100%;
@@ -841,7 +841,7 @@ width: 7px;
 }
 
 .leaflet-retina .leaflet-control-layers-toggle {
-  background-image: url(src/components/images/show-on-map-icon-v1.svg) !important;
+  background-image: url(images/src/components/images/show-on-map-icon-v1.svg) !important;
   background-size: 60px 60px !important;
 }
 
