@@ -400,31 +400,6 @@ template {
 
 [hidden] {
   display: none;
-}.add-comment-button {
-  cursor: pointer;
-  font-size: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #92AD94;
-}
-
-.add-comment-button-img {
-  width: 30px;
-}
-
-/* Media queries */
-@media (max-width: 320px) {
-  .add-comment-button-img {
-    margin-right: 5px;
-    width: 30px;
-    height: 30px;
-  }
-
-  .add-comment-button {
-    color: #0B3142;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
 }/* Overriding default leaflet.css styles with !important.
    This solution don't modify source code of Leaflet.
    If you want get back to the Leaflet default styles - just remove !important declarations
@@ -460,7 +435,26 @@ a.leaflet-popup-close-button {
   font-weight: 700;
   color: #1C2833;
 }
-.popup-image-thumbnail-wrapper {
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #92AD94;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color:  #2F2235; */
+  /* color: #262730; */
+  /* color: #36558F; */
+  color: #0B3142;
+}
+
+.add-button-img {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}.popup-image-thumbnail-wrapper {
   overflow: auto;
   transition: width 0.5s ease;
 }
@@ -723,7 +717,70 @@ width: 7px;
     width: 300px !important;
   }
 }
-.pan-controller {
+.add-comment-button {
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #92AD94;
+}
+
+.add-comment-button-img {
+  width: 30px;
+}
+
+/* Media queries */
+@media (max-width: 320px) {
+  .add-comment-button-img {
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .add-comment-button {
+    color: #0B3142;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}.pan-up-button,
+.pan-right-button,
+.pan-down-button,
+.pan-left-button {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  /* background-color: rgba(146, 173, 148, 0.5);
+  border: 2px solid #0B3142; */
+  background-color: transparent;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.pan-up-button {
+  top: -20px;
+  left: calc((100% - 48px) / 2);
+}
+
+.pan-right-button {
+  right: -20px;
+  /* 80px in the top position calc - height of PanController component. 
+   *  It may be changed. See actual height in 'PanController.css' file
+   */
+  top: calc((80px - 48px) / 2);
+}
+
+.pan-down-button {
+  bottom: -20px;
+  left: calc((100% - 48px) / 2);
+}
+
+.pan-left-button {
+  left: -20px;
+  /* 80px in the top position calc - height of PanController component. 
+   *  It may be changed. See actual height in 'PanController.css' file
+   */
+  top: calc((80px - 48px) / 2);
+}.pan-controller {
   position: fixed;
   z-index: 500;
   bottom: calc(100vh - 95vh);
@@ -830,25 +887,6 @@ width: 7px;
     bottom: calc(100vh - 95vh) !important;
     right: 0 !important;
   }
-}.add-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #92AD94;
-  cursor: pointer;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  text-transform: uppercase;
-  /* color:  #2F2235; */
-  /* color: #262730; */
-  /* color: #36558F; */
-  color: #0B3142;
-}
-
-.add-button-img {
-  margin-right: 5px;
-  width: 30px;
-  height: 30px;
 }.leaflet-container {
   height: 100vh;
   width: 100%;
@@ -959,43 +997,5 @@ width: 7px;
     left: calc(100vw - 19vw);
   }
 }
-.pan-up-button,
-.pan-right-button,
-.pan-down-button,
-.pan-left-button {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  /* background-color: rgba(146, 173, 148, 0.5);
-  border: 2px solid #0B3142; */
-  background-color: transparent;
-  border-radius: 50%;
-  z-index: 1000;
-}
 
-.pan-up-button {
-  top: -20px;
-  left: calc((100% - 48px) / 2);
-}
-
-.pan-right-button {
-  right: -20px;
-  /* 80px in the top position calc - height of PanController component. 
-   *  It may be changed. See actual height in 'PanController.css' file
-   */
-  top: calc((80px - 48px) / 2);
-}
-
-.pan-down-button {
-  bottom: -20px;
-  left: calc((100% - 48px) / 2);
-}
-
-.pan-left-button {
-  left: -20px;
-  /* 80px in the top position calc - height of PanController component. 
-   *  It may be changed. See actual height in 'PanController.css' file
-   */
-  top: calc((80px - 48px) / 2);
-}
 /*# sourceMappingURL=main.css.map*/
