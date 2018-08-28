@@ -780,21 +780,7 @@ width: 7px;
    *  It may be changed. See actual height in 'PanController.css' file
    */
   top: calc((80px - 48px) / 2);
-}.logo-button {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  z-index: 1000;
-  background: transparent;
-}
-
-/* Media queries */
-@media (max-width: 500px) {
-  .logo-button {
-    width: 70px;
-  }
-}
-.pan-controller {
+}.pan-controller {
   position: fixed;
   z-index: 500;
   bottom: calc(100vh - 95vh);
@@ -816,7 +802,21 @@ width: 7px;
     border: 2px solid rgba(146, 173, 148, 0.8);
     border-radius: 50%;
   }
-} */.leaflet-bar {
+} */.logo-button {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1000;
+  background: transparent;
+}
+
+/* Media queries */
+@media (max-width: 500px) {
+  .logo-button {
+    width: 70px;
+  }
+}
+.leaflet-bar {
   border: none !important;
 }
 
@@ -842,6 +842,10 @@ width: 7px;
 
 .leaflet-control-locate a {
   background-color: transparent !important;
+  width: 45px !important;
+  height: 45px !important;
+  margin-top: 3px !important;
+  margin-left: 3px !important;
 }
 .leaflet-control-layers {
   background-color: rgba(146, 173, 148, 0.5) !important;
