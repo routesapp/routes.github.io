@@ -1,289 +1,104 @@
-.popup-comment-container {
-  display: flex;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-bottom: 1px solid #1C2833;
-  margin: 0 5px 5px 5px;
-  /* color: #1C2833; */
-}
-
-.comment-content-area {
-  width: calc(100% - 55px);
-}
-
-.comment-author-name {
-  font-size: 12px;
-  font-weight: 700;
-  margin-right: 5px;
-  margin-bottom: 2px;
-}
-
-.comment-date {
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 11px;
-}
-
-.comment-text {
-  font-family: 'IBM Plex Serif', serif;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-.comment-text p {
-  padding-left: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.comment-avatar-area {
-  width: 60px;
-  min-height: 60px;
-}
-
-.comments-avatar-picture {
-  width: 50px;
-  height: 50px;
-  max-width: 50px;
-  max-height: 50px;
-  border-radius: 50%;
-  border: 1px solid #859E87;
-}
-
-.comments-section-heading {
-  font-size: 14px;
-}
-
-/* Media queries */
-@media (max-width: 320px) {
-  .comment-avatar-area {
-    width: 50px;
-    margin-right: 15px;
-  }
-}
-@font-face {
-  font-family: 'Montserrat';
-  src: url(9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
-    url(419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
-    url(81f639a8d864932fdecff26eabec1f67.woff2) format("woff2"); /* Modern Browsers */
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url(c88cecbffad6d8e731fd95de49561ebd.ttf) format("truetype"), 
-    url(8476208859e8bea2d2687dec44807356.woff) format("woff"), 
-    url(6a82de9da3cefed185e62e80089736b1.woff2) format("woff2"); /* Modern Browsers */
-  font-weight: 600;
-  font-style: normal;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 14px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img, embed,
-object, video {
-  max-width: 100%;
-}
-
-nav a, button {
-  min-width: 48px;
-  min-height: 48px;
-}
-
-button {
-  border: none;
-}
-.add-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #92AD94;
-  cursor: pointer;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  text-transform: uppercase;
-  /* color:  #2F2235; */
-  /* color: #262730; */
-  /* color: #36558F; */
-  color: #0B3142;
-}
-
-.add-button-img {
-  margin-right: 5px;
-  width: 30px;
-  height: 30px;
-}/* Overriding default leaflet.css styles with !important.
-   This solution don't modify source code of Leaflet.
-   If you want get back to the Leaflet default styles - just remove !important declarations
-   in the css rules
-*/
-
-a.leaflet-popup-close-button {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: absolute;
-  padding: 1px 1px !important;
-  top: -10px !important;
-  right: -10px !important;
-  cursor: pointer;
-  width: 20px !important;
-  height: 20px !important;
-  background-color:  #92AD94 !important;
-  border: 1px solid #859E87 !important;
-  border-radius: 50% !important;
+/* Use !important to override leaflet.css default styles. Solve it another way in the future */
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  width: 400px !important;
+  height: 300px !important; 
+  max-height: 300px !important;
+  border-radius: 2px !important;
+  background-color: #92AD94 !important;
   color: #1C2833 !important;
-  z-index: 5;
+  font-family: 'Montserrat' !important;
+  font-size: 14px !important;
 }
 
-.leaflet-container a.leaflet-popup-close-button:hover {
-  background-color: #859E87 !important;
-  border: 1px solid #92AD94 !important;
-  font-size: 13px !important;
+.leaflet-popup-tip {
+  background-color: #92AD94 !important;
 }
 
-.close-symbol {
-  margin-bottom: 3px;
-  font-weight: 700;
-  color: #1C2833;
-}
-.add-comment-button {
-  cursor: pointer;
-  font-size: 10px;
-  display: flex;
-  flex-wrap: wrap;
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: 400px !important;
+  height: 300px; 
+  max-height: 300px;
+  border-radius: 2px;
   background-color: #92AD94;
+  color: #1C2833;
+  font-family: 'Montserrat';
+  font-size: 14px;
 }
 
-.add-comment-button-img {
-  width: 30px;
-}
-
-/* Media queries */
-@media (max-width: 320px) {
-  .add-comment-button-img {
-    margin-right: 5px;
-    width: 30px;
-    height: 30px;
-  }
-
-  .add-comment-button {
-    color: #0B3142;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-}.popup-image-thumbnail-wrapper {
-  overflow: auto;
-  transition: width 0.5s ease;
-}
-
-/* Hide horizontall scrollbar webkit-engine */
-/* TODO - solve this for another browsers */
-.popup-image-thumbnail-wrapper::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.popup-image-thumbnail-list {
-  list-style: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  display: flex;
-}
-
-/* Media queries */
-@media (max-width: 450px) {
-  .popup-image-thumbnail {
-    width: 75px;
-    min-width: 75px;
-    max-width: 100%;
-    padding-right: 5px;
-  }
-
-  .popup-image-thumbnail-wrapper {
-    -webkit-overflow-scrolling: touch;
-  }
-  .popup-image-thumbnail-wrapper::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 75px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
-    visibility: visible;
-    opacity: 1;
-    transition: opacity .3s 0s, visibility 0s 0s;
-  }
-
-  .popup-image-thumbnail-wrapper.popup-image-thumbnail-wrapper--scroll-ended::after {
-    /* class added in JavaScript - remove the gradient layer when it's no longer possible to scroll */
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .3s 0s, visibility 0s .3s;
-  }
-}.image-section-wrapper {
-  flex: 1 1 auto;
-  padding: 0 0 5px 5px;
-  position: relative;
-  width: 30%;
-  border: 1px solid red; /* Remove it for production */
-}.description-section-wrapper {
-  width: calc(100% - 130px);
-  /* flex-grow: 8; */
-  border: 1px solid green;
-  height: 200px;
-  overflow: auto;
-}
-
-.description-section-heading {
-  padding: 0;
+.description-content {
+  /* max-height: 200px; */
+  height: 130px;
   padding-left: 5px;
-  margin: 0;
-  font-size: 18px;
+  overflow: auto;
+  text-overflow: ellipsis;
+  /* font-family: 'PT Serif', serif; */
+  font-size: 13px;
+  font-family: 'IBM Plex Serif', serif;
+  /* letter-spacing: 0.01em; */
+  line-height: 1.5;
+}
+
+/* Changing tab styles switches on hover */
+.tab-title:hover {
+  cursor: pointer;
+}
+
+/* Styles for scroll-bar */
+::-webkit-scrollbar-button {
+background-image:url('');
+background-repeat:no-repeat;
+width:5px;
+height:0px
+}
+
+::-webkit-scrollbar-track {
+background-color:#C3D2C4;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 0px;
+/* background-color:#6dc0c8; */
+background-color: #0B3142;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background-color:#56999f;
+}
+
+::-webkit-resizer{
+background-image:url('');
+background-repeat:no-repeat;
+width:4px;
+height:0px
+}
+
+::-webkit-scrollbar{
+width: 7px;
 }
 
 /* Media queries */
-@media (max-width: 550px) {
-  .description-section-wrapper {
-    width: 100%;
-    height: 125px;
+@media (max-width: 359px) {
+  .leaflet-popup-content-wrapper {
+    width: 280px !important;
   }
 
-  .description-section-heading {
-    font-size: 17px;
+  .leaflet-popup-content {
+    width: 280px !important;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 550px) {
+  .leaflet-popup-content-wrapper {
+    width: 300px !important;
   }
 
-  .leaflet-popup-content p {
-    margin-top: 5px !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    font-size: 0.95em !important;
+  .leaflet-popup-content {
+    width: 300px !important;
   }
-}.additional-section-wrapper {
-  display: flex;
-  width: 100%;
-  order: 3;
-  padding: 10px;
-  border: 1px solid blue;
-}.avatar-image {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #0B3142;
-  border-radius: 50%;
-  margin-top: calc(100% / 5);
-}/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+}
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -624,125 +439,292 @@ template {
 
 [hidden] {
   display: none;
-}.testimonials-section-wrapper {
+}/* Overriding default leaflet.css styles with !important.
+   This solution don't modify source code of Leaflet.
+   If you want get back to the Leaflet default styles - just remove !important declarations
+   in the css rules
+*/
+
+a.leaflet-popup-close-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute;
+  padding: 1px 1px !important;
+  top: -10px !important;
+  right: -10px !important;
+  cursor: pointer;
+  width: 20px !important;
+  height: 20px !important;
+  background-color:  #92AD94 !important;
+  border: 1px solid #859E87 !important;
+  border-radius: 50% !important;
+  color: #1C2833 !important;
+  z-index: 5;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  background-color: #859E87 !important;
+  border: 1px solid #92AD94 !important;
+  font-size: 13px !important;
+}
+
+.close-symbol {
+  margin-bottom: 3px;
+  font-weight: 700;
+  color: #1C2833;
+}
+.add-comment-button {
+  cursor: pointer;
+  font-size: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: auto;
-  height: 160px;
-  max-height: 160px;
-  overflow: auto;
+  background-color: #92AD94;
+}
+
+.add-comment-button-img {
+  width: 30px;
 }
 
 /* Media queries */
-/* @media (max-width: 320px) {
-  .testimonials-section-wrapper {
-    height: 160px;
-    max-height: 160px;
-    overflow: auto;
+@media (max-width: 320px) {
+  .add-comment-button-img {
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
   }
-} */
-/* Use !important to override leaflet.css default styles. Solve it another way in the future */
-.leaflet-popup-content-wrapper {
-  padding: 0 !important;
-  width: 400px !important;
-  height: 300px !important; 
-  max-height: 300px !important;
-  border-radius: 2px !important;
-  background-color: #92AD94 !important;
-  color: #1C2833 !important;
-  font-family: 'Montserrat' !important;
-  font-size: 14px !important;
+
+  .add-comment-button {
+    color: #0B3142;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}.popup-image-thumbnail-wrapper {
+  overflow: auto;
+  transition: width 0.5s ease;
 }
 
-.leaflet-popup-tip {
-  background-color: #92AD94 !important;
+/* Hide horizontall scrollbar webkit-engine */
+/* TODO - solve this for another browsers */
+.popup-image-thumbnail-wrapper::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
-.leaflet-popup-content {
-  margin: 0 !important;
-  width: 400px !important;
-  height: 300px; 
-  max-height: 300px;
-  border-radius: 2px;
+.popup-image-thumbnail-list {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  display: flex;
+}
+
+/* Media queries */
+@media (max-width: 450px) {
+  .popup-image-thumbnail {
+    width: 75px;
+    min-width: 75px;
+    max-width: 100%;
+    padding-right: 5px;
+  }
+
+  .popup-image-thumbnail-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+  .popup-image-thumbnail-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s 0s, visibility 0s 0s;
+  }
+
+  .popup-image-thumbnail-wrapper.popup-image-thumbnail-wrapper--scroll-ended::after {
+    /* class added in JavaScript - remove the gradient layer when it's no longer possible to scroll */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s 0s, visibility 0s .3s;
+  }
+}.image-section-wrapper {
+  flex: 1 1 auto;
+  padding: 0 0 5px 5px;
+  position: relative;
+  width: 30%;
+  border: 1px solid red; /* Remove it for production */
+}.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: #92AD94;
-  color: #1C2833;
+  cursor: pointer;
   font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color:  #2F2235; */
+  /* color: #262730; */
+  /* color: #36558F; */
+  color: #0B3142;
+}
+
+.add-button-img {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}.additional-section-wrapper {
+  display: flex;
+  width: 100%;
+  order: 3;
+  padding: 10px;
+  border: 1px solid blue;
+}.avatar-image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #0B3142;
+  border-radius: 50%;
+  margin-top: calc(100% / 5);
+}.popup-comment-container {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #1C2833;
+  margin: 0 5px 5px 5px;
+  /* color: #1C2833; */
+}
+
+.comment-content-area {
+  width: calc(100% - 55px);
+}
+
+.comment-author-name {
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
+.comment-date {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 11px;
+}
+
+.comment-text {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.comment-text p {
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.comment-avatar-area {
+  width: 60px;
+  min-height: 60px;
+}
+
+.comments-avatar-picture {
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  border: 1px solid #859E87;
+}
+
+.comments-section-heading {
   font-size: 14px;
 }
 
-.description-content {
-  /* max-height: 200px; */
-  height: 130px;
-  padding-left: 5px;
+/* Media queries */
+@media (max-width: 320px) {
+  .comment-avatar-area {
+    width: 50px;
+    margin-right: 15px;
+  }
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url(9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
+    url(419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
+    url(81f639a8d864932fdecff26eabec1f67.woff2) format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(c88cecbffad6d8e731fd95de49561ebd.ttf) format("truetype"), 
+    url(8476208859e8bea2d2687dec44807356.woff) format("woff"), 
+    url(6a82de9da3cefed185e62e80089736b1.woff2) format("woff2"); /* Modern Browsers */
+  font-weight: 600;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, embed,
+object, video {
+  max-width: 100%;
+}
+
+nav a, button {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+button {
+  border: none;
+}
+.description-section-wrapper {
+  width: calc(100% - 130px);
+  /* flex-grow: 8; */
+  border: 1px solid green;
+  height: 200px;
   overflow: auto;
-  text-overflow: ellipsis;
-  /* font-family: 'PT Serif', serif; */
-  font-size: 13px;
-  font-family: 'IBM Plex Serif', serif;
-  /* letter-spacing: 0.01em; */
-  line-height: 1.5;
 }
 
-/* Changing tab styles switches on hover */
-.tab-title:hover {
-  cursor: pointer;
-}
-
-/* Styles for scroll-bar */
-::-webkit-scrollbar-button {
-background-image:url('');
-background-repeat:no-repeat;
-width:5px;
-height:0px
-}
-
-::-webkit-scrollbar-track {
-background-color:#C3D2C4;
-}
-
-::-webkit-scrollbar-thumb {
-border-radius: 0px;
-/* background-color:#6dc0c8; */
-background-color: #0B3142;
-}
-
-::-webkit-scrollbar-thumb:hover{
-background-color:#56999f;
-}
-
-::-webkit-resizer{
-background-image:url('');
-background-repeat:no-repeat;
-width:4px;
-height:0px
-}
-
-::-webkit-scrollbar{
-width: 7px;
+.description-section-heading {
+  padding: 0;
+  padding-left: 5px;
+  margin: 0;
+  font-size: 18px;
 }
 
 /* Media queries */
-@media (max-width: 359px) {
-  .leaflet-popup-content-wrapper {
-    width: 280px !important;
+@media (max-width: 550px) {
+  .description-section-wrapper {
+    width: 100%;
+    height: 125px;
   }
 
-  .leaflet-popup-content {
-    width: 280px !important;
-  }
-}
-
-@media (min-width: 360px) and (max-width: 550px) {
-  .leaflet-popup-content-wrapper {
-    width: 300px !important;
+  .description-section-heading {
+    font-size: 17px;
   }
 
-  .leaflet-popup-content {
-    width: 300px !important;
+  .leaflet-popup-content p {
+    margin-top: 5px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    font-size: 0.95em !important;
   }
-}
-.pan-up-button,
+}.pan-up-button,
 .pan-right-button,
 .pan-down-button,
 .pan-left-button {
@@ -820,22 +802,156 @@ width: 7px;
   border: none !important;
 }
 
+.leaflet-touch .leaflet-bar a {
+  width: 43px !important;
+  height: 43px !important;
+  margin-left: 4px !important;
+  margin-top: 4px !important;
+}
+
 .leaflet-control-locate {
   position: fixed !important;
   bottom: calc(100vh - 92vh) !important;
   left: 25px !important;
   width: 50px !important;
   height: 50px !important;
-  border: 2px solid gray !important;
   border-radius: 50% !important;
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iNjAiCiAgIGhlaWdodD0iNjAiCiAgIHZpZXdCb3g9IjAgMCA2MC4wMDAwMDEgNjAuMDAwMDAxIgogICBpZD0ic3ZnNDE2MiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9jYXRpb24taWNvbi1ibGFjay5zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM0MTY0IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0iYmFzZSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp6b29tPSIxMC42MDQxNjYiCiAgICAgaW5rc2NhcGU6Y3g9IjI5LjYyMjgyMyIKICAgICBpbmtzY2FwZTpjeT0iMjkuMzM3OTg4IgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJweCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllcjEiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIHVuaXRzPSJweCIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjEzOTEiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iODc2IgogICAgIGlua3NjYXBlOndpbmRvdy14PSI0OSIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjQiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE0MTY3Ij4KICAgIDxyZGY6UkRGPgogICAgICA8Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+CiAgICAgICAgPGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPgogICAgICAgIDxkYzp0aXRsZT48L2RjOnRpdGxlPgogICAgICA8L2NjOldvcms+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZwogICAgIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiCiAgICAgaWQ9ImxheWVyMSIKICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC05OTIuMzYyMTYpIj4KICAgIDxnCiAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0Ljk3MTg4NTUsOTQ1LjAzMTMyKSIKICAgICAgIGlkPSJnNDcxMCI+CiAgICAgIDxjaXJjbGUKICAgICAgICAgcj0iMi41IgogICAgICAgICBjeT0iNzkuODYyMjA2IgogICAgICAgICBjeD0iMjcuNSIKICAgICAgICAgaWQ9InBhdGg0MTQ2IgogICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS43MDAwMDAwNTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPGVsbGlwc2UKICAgICAgICAgcnk9IjIzLjQwMTA0NyIKICAgICAgICAgcng9IjIzLjQwMTA0OSIKICAgICAgICAgY3k9Ijc3LjM4ODE4NCIKICAgICAgICAgY3g9IjI1LjAyNDkyIgogICAgICAgICBpZD0icGF0aDQxNDgiCiAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE5NzkwNjAyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDQxNTQiCiAgICAgICAgIGQ9Im0gMjUuMDYzMTM1LDQ3LjM2NzI4MSAwLDUuNSIKICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6My4xNDY0MjY0NDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbDpub25lO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE0NjQyNjQ0O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgIGQ9Im0gMjQuOTg5OTIxLDEwMS44NTIzOCAwLDUuNSIKICAgICAgICAgaWQ9InBhdGg0MTU2IgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbDpub25lO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE0NjQyNjQ0O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgIGQ9Im0gMC41MDc0NDg5OSw3Ny40MjI5NjcgLTUuNDk5OTk5OTksMCIKICAgICAgICAgaWQ9InBhdGg0MTYwIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgogICAgICA8cGF0aAogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDQxNjQiCiAgICAgICAgIGQ9Im0gNTUuMDE4ODA4LDc3LjQxNTMwNyAtNS41LDAiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjMuMTQ2NDI2NDQ7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPGNpcmNsZQogICAgICAgICByPSIxMi41IgogICAgICAgICBjeT0iNzcuMzM3Nzg0IgogICAgICAgICBjeD0iMjUuMDM5OTcyIgogICAgICAgICBpZD0icGF0aDQxNjgiCiAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==) !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background-size: 50px 50px !important;
+  background-size: 48px 48px !important;
 }
 
 .leaflet-control-locate a {
   background-color: transparent !important;
+}
+.leaflet-container {
+  height: 100vh;
+  width: 100%;
+}
+.testimonials-section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+  height: 160px;
+  max-height: 160px;
+  overflow: auto;
+}
+
+/* Media queries */
+/* @media (max-width: 320px) {
+  .testimonials-section-wrapper {
+    height: 160px;
+    max-height: 160px;
+    overflow: auto;
+  }
+} */
+/* Customize Leaflet zoom-control default styles */
+
+.leaflet-control-zoom {
+  border: none !important;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  border-radius: 50% !important;
+}
+
+.leaflet-control-zoom-in {
+  width: 50px !important;
+  height: 50px !important;
+  border: 3px solid rgba(11, 49, 66, 0.8) !important;
+  background-color: rgba(146, 173, 148, 0.5) !important;
+  color: #0B3142 !important;
+  line-height: 40px !important;
+  font-size: 30px !important;
+  margin-bottom: 5px;
+}
+
+.leaflet-control-zoom-out {
+  width: 46px !important;
+  height: 46px !important;
+  border: 2px solid rgba(11, 49, 66, 0.8) !important;
+  background-color: rgba(146, 173, 148, 0.5) !important;
+  color: #0B3142 !important;
+  line-height: 40px !important;
+  font-size: 28px !important;
+  margin-left: 6px !important;
+}
+
+/* general toolbar styles */
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a,
+.leaflet-bar a:hover {
+	/* background-color: transparent !important; */
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+/* Media queries */
+@media (max-width: 500px) {
+  .leaflet-control-zoom {
+    position: fixed;
+    top: calc(100vh - 60vh);
+    left: calc(100vw - 22vw);
+  }
+}
+
+
+@media (min-width: 360px) {
+  .leaflet-control-zoom {
+    position: absolute;
+    top: calc(100vh / 2);
+    left: calc(100vw - 19vw);
+  }
 }
 .leaflet-control-layers {
   background-color: rgba(146, 173, 148, 0.5) !important;
@@ -908,115 +1024,5 @@ width: 7px;
     bottom: calc(100vh - 95vh) !important;
     right: 0 !important;
   }
-}/* Customize Leaflet zoom-control default styles */
-
-.leaflet-control-zoom {
-  border: none !important;
 }
-
-.leaflet-control-zoom-in,
-.leaflet-control-zoom-out {
-  border-radius: 50% !important;
-}
-
-.leaflet-control-zoom-in {
-  width: 50px !important;
-  height: 50px !important;
-  border: 3px solid rgba(11, 49, 66, 0.8) !important;
-  background-color: rgba(146, 173, 148, 0.5) !important;
-  color: #0B3142 !important;
-  line-height: 40px !important;
-  font-size: 30px !important;
-  margin-bottom: 5px;
-}
-
-.leaflet-control-zoom-out {
-  width: 46px !important;
-  height: 46px !important;
-  border: 2px solid rgba(11, 49, 66, 0.8) !important;
-  background-color: rgba(146, 173, 148, 0.5) !important;
-  color: #0B3142 !important;
-  line-height: 40px !important;
-  font-size: 28px !important;
-  margin-left: 2px !important;
-}
-
-/* general toolbar styles */
-
-.leaflet-bar {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
-	border-radius: 4px;
-	}
-.leaflet-bar a,
-.leaflet-bar a:hover {
-	/* background-color: transparent !important; */
-	border-bottom: 1px solid #ccc;
-	width: 26px;
-	height: 26px;
-	line-height: 26px;
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	color: black;
-	}
-.leaflet-bar a,
-.leaflet-control-layers-toggle {
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-	display: block;
-	}
-.leaflet-bar a:hover {
-	background-color: #f4f4f4;
-	}
-.leaflet-bar a:first-child {
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	}
-.leaflet-bar a:last-child {
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	border-bottom: none;
-	}
-.leaflet-bar a.leaflet-disabled {
-	cursor: default;
-	background-color: #f4f4f4;
-	color: #bbb;
-	}
-
-.leaflet-touch .leaflet-bar a {
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	}
-.leaflet-touch .leaflet-bar a:first-child {
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	}
-.leaflet-touch .leaflet-bar a:last-child {
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
-	}
-
-/* Media queries */
-@media (max-width: 500px) {
-  .leaflet-control-zoom {
-    position: fixed;
-    top: calc(100vh - 60vh);
-    left: calc(100vw - 21vw);
-  }
-}
-
-
-@media (min-width: 360px) {
-  .leaflet-control-zoom {
-    position: absolute;
-    top: calc(100vh / 2);
-    left: calc(100vw - 19vw);
-  }
-}
-.leaflet-container {
-  height: 100vh;
-  width: 100%;
-}
-
 /*# sourceMappingURL=main.css.map*/
