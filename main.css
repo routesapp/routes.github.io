@@ -59,7 +59,231 @@
     margin-right: 15px;
   }
 }
-/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+  font-family: 'Montserrat';
+  src: url(9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
+    url(419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
+    url(81f639a8d864932fdecff26eabec1f67.woff2) format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(c88cecbffad6d8e731fd95de49561ebd.ttf) format("truetype"), 
+    url(8476208859e8bea2d2687dec44807356.woff) format("woff"), 
+    url(6a82de9da3cefed185e62e80089736b1.woff2) format("woff2"); /* Modern Browsers */
+  font-weight: 600;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, embed,
+object, video {
+  max-width: 100%;
+}
+
+nav a, button {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+button {
+  border: none;
+}
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #92AD94;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color:  #2F2235; */
+  /* color: #262730; */
+  /* color: #36558F; */
+  color: #0B3142;
+}
+
+.add-button-img {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}/* Overriding default leaflet.css styles with !important.
+   This solution don't modify source code of Leaflet.
+   If you want get back to the Leaflet default styles - just remove !important declarations
+   in the css rules
+*/
+
+a.leaflet-popup-close-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute;
+  padding: 1px 1px !important;
+  top: -10px !important;
+  right: -10px !important;
+  cursor: pointer;
+  width: 20px !important;
+  height: 20px !important;
+  background-color:  #92AD94 !important;
+  border: 1px solid #859E87 !important;
+  border-radius: 50% !important;
+  color: #1C2833 !important;
+  z-index: 5;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  background-color: #859E87 !important;
+  border: 1px solid #92AD94 !important;
+  font-size: 13px !important;
+}
+
+.close-symbol {
+  margin-bottom: 3px;
+  font-weight: 700;
+  color: #1C2833;
+}
+.add-comment-button {
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #92AD94;
+}
+
+.add-comment-button-img {
+  width: 30px;
+}
+
+/* Media queries */
+@media (max-width: 320px) {
+  .add-comment-button-img {
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .add-comment-button {
+    color: #0B3142;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}.popup-image-thumbnail-wrapper {
+  overflow: auto;
+  transition: width 0.5s ease;
+}
+
+/* Hide horizontall scrollbar webkit-engine */
+/* TODO - solve this for another browsers */
+.popup-image-thumbnail-wrapper::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.popup-image-thumbnail-list {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  display: flex;
+}
+
+/* Media queries */
+@media (max-width: 450px) {
+  .popup-image-thumbnail {
+    width: 75px;
+    min-width: 75px;
+    max-width: 100%;
+    padding-right: 5px;
+  }
+
+  .popup-image-thumbnail-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+  .popup-image-thumbnail-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s 0s, visibility 0s 0s;
+  }
+
+  .popup-image-thumbnail-wrapper.popup-image-thumbnail-wrapper--scroll-ended::after {
+    /* class added in JavaScript - remove the gradient layer when it's no longer possible to scroll */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s 0s, visibility 0s .3s;
+  }
+}.image-section-wrapper {
+  flex: 1 1 auto;
+  padding: 0 0 5px 5px;
+  position: relative;
+  width: 30%;
+  border: 1px solid red; /* Remove it for production */
+}.description-section-wrapper {
+  width: calc(100% - 130px);
+  /* flex-grow: 8; */
+  border: 1px solid green;
+  height: 200px;
+  overflow: auto;
+}
+
+.description-section-heading {
+  padding: 0;
+  padding-left: 5px;
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Media queries */
+@media (max-width: 550px) {
+  .description-section-wrapper {
+    width: 100%;
+    height: 125px;
+  }
+
+  .description-section-heading {
+    font-size: 17px;
+  }
+
+  .leaflet-popup-content p {
+    margin-top: 5px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    font-size: 0.95em !important;
+  }
+}.additional-section-wrapper {
+  display: flex;
+  width: 100%;
+  order: 3;
+  padding: 10px;
+  border: 1px solid blue;
+}.avatar-image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #0B3142;
+  border-radius: 50%;
+  margin-top: calc(100% / 5);
+}/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -400,231 +624,7 @@ template {
 
 [hidden] {
   display: none;
-}/* Overriding default leaflet.css styles with !important.
-   This solution don't modify source code of Leaflet.
-   If you want get back to the Leaflet default styles - just remove !important declarations
-   in the css rules
-*/
-
-a.leaflet-popup-close-button {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: absolute;
-  padding: 1px 1px !important;
-  top: -10px !important;
-  right: -10px !important;
-  cursor: pointer;
-  width: 20px !important;
-  height: 20px !important;
-  background-color:  #92AD94 !important;
-  border: 1px solid #859E87 !important;
-  border-radius: 50% !important;
-  color: #1C2833 !important;
-  z-index: 5;
-}
-
-.leaflet-container a.leaflet-popup-close-button:hover {
-  background-color: #859E87 !important;
-  border: 1px solid #92AD94 !important;
-  font-size: 13px !important;
-}
-
-.close-symbol {
-  margin-bottom: 3px;
-  font-weight: 700;
-  color: #1C2833;
-}
-.add-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #92AD94;
-  cursor: pointer;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  text-transform: uppercase;
-  /* color:  #2F2235; */
-  /* color: #262730; */
-  /* color: #36558F; */
-  color: #0B3142;
-}
-
-.add-button-img {
-  margin-right: 5px;
-  width: 30px;
-  height: 30px;
-}.add-comment-button {
-  cursor: pointer;
-  font-size: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #92AD94;
-}
-
-.add-comment-button-img {
-  width: 30px;
-}
-
-/* Media queries */
-@media (max-width: 320px) {
-  .add-comment-button-img {
-    margin-right: 5px;
-    width: 30px;
-    height: 30px;
-  }
-
-  .add-comment-button {
-    color: #0B3142;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-}.popup-image-thumbnail-wrapper {
-  overflow: auto;
-  transition: width 0.5s ease;
-}
-
-/* Hide horizontall scrollbar webkit-engine */
-/* TODO - solve this for another browsers */
-.popup-image-thumbnail-wrapper::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.popup-image-thumbnail-list {
-  list-style: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  display: flex;
-}
-
-/* Media queries */
-@media (max-width: 450px) {
-  .popup-image-thumbnail {
-    width: 75px;
-    min-width: 75px;
-    max-width: 100%;
-    padding-right: 5px;
-  }
-
-  .popup-image-thumbnail-wrapper {
-    -webkit-overflow-scrolling: touch;
-  }
-  .popup-image-thumbnail-wrapper::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 75px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(146, 173, 148, 0.0) 0%, rgba(146, 173, 148, 0.5) 47%, rgba(146, 173, 148, 1) 100%);
-    visibility: visible;
-    opacity: 1;
-    transition: opacity .3s 0s, visibility 0s 0s;
-  }
-
-  .popup-image-thumbnail-wrapper.popup-image-thumbnail-wrapper--scroll-ended::after {
-    /* class added in JavaScript - remove the gradient layer when it's no longer possible to scroll */
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .3s 0s, visibility 0s .3s;
-  }
-}.image-section-wrapper {
-  flex: 1 1 auto;
-  padding: 0 0 5px 5px;
-  position: relative;
-  width: 30%;
-  border: 1px solid red; /* Remove it for production */
-}.description-section-wrapper {
-  width: calc(100% - 130px);
-  /* flex-grow: 8; */
-  border: 1px solid green;
-  height: 200px;
-  overflow: auto;
-}
-
-.description-section-heading {
-  padding: 0;
-  padding-left: 5px;
-  margin: 0;
-  font-size: 18px;
-}
-
-/* Media queries */
-@media (max-width: 550px) {
-  .description-section-wrapper {
-    width: 100%;
-    height: 125px;
-  }
-
-  .description-section-heading {
-    font-size: 17px;
-  }
-
-  .leaflet-popup-content p {
-    margin-top: 5px !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    font-size: 0.95em !important;
-  }
-}.additional-section-wrapper {
-  display: flex;
-  width: 100%;
-  order: 3;
-  padding: 10px;
-  border: 1px solid blue;
-}.avatar-image {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #0B3142;
-  border-radius: 50%;
-  margin-top: calc(100% / 5);
-}@font-face {
-  font-family: 'Montserrat';
-  src: url(9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
-    url(419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
-    url(81f639a8d864932fdecff26eabec1f67.woff2) format("woff2"); /* Modern Browsers */
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url(c88cecbffad6d8e731fd95de49561ebd.ttf) format("truetype"), 
-    url(8476208859e8bea2d2687dec44807356.woff) format("woff"), 
-    url(6a82de9da3cefed185e62e80089736b1.woff2) format("woff2"); /* Modern Browsers */
-  font-weight: 600;
-  font-style: normal;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 14px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img, embed,
-object, video {
-  max-width: 100%;
-}
-
-nav a, button {
-  min-width: 48px;
-  min-height: 48px;
-}
-
-button {
-  border: none;
-}
-.testimonials-section-wrapper {
+}.testimonials-section-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -820,21 +820,6 @@ width: 7px;
   border: none !important;
 }
 
-.leaflet-bar-part {
-  background-color: transparent !important;
-}
-
-/* .leaflet-bar a,
-.leaflet-bar a:hover {
-  
-} */
-
-.leaflet-bar a {
-  /* background-color: transparent !important;
-  background-image: url(../images/location-icon-common.svg) !important;
-  background-size: 50px 50px !important; */
-}
-
 .leaflet-control-locate {
   position: fixed !important;
   bottom: calc(100vh - 92vh) !important;
@@ -843,20 +828,15 @@ width: 7px;
   height: 50px !important;
   border: 2px solid gray !important;
   border-radius: 50% !important;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iMjEwbW0iCiAgIGhlaWdodD0iMjk3bW0iCiAgIHZpZXdCb3g9IjAgMCA3NDQuMDk0NDg4MTkgMTA1Mi4zNjIyMDQ3IgogICBpZD0ic3ZnMiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9jYXRpb24taWNvbi1jb21tb24uc3ZnIj4KICA8ZGVmcwogICAgIGlkPSJkZWZzNCIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9ImJhc2UiCiAgICAgcGFnZWNvbG9yPSIjZmZmZmZmIgogICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6em9vbT0iNi4zODY0MTk3IgogICAgIGlua3NjYXBlOmN4PSIyMy42ODUyOTkiCiAgICAgaW5rc2NhcGU6Y3k9Ijk2OC41NTg3OCIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0icHgiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ibGF5ZXIxIgogICAgIHNob3dncmlkPSJ0cnVlIgogICAgIGlua3NjYXBlOnNuYXAtZ3JpZHM9InRydWUiCiAgICAgc2hvd2d1aWRlcz0idHJ1ZSIKICAgICBpbmtzY2FwZTpndWlkZS1iYm94PSJ0cnVlIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTM5MSIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI4NzYiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjQ5IgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyNCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIj4KICAgIDxpbmtzY2FwZTpncmlkCiAgICAgICB0eXBlPSJ4eWdyaWQiCiAgICAgICBpZD0iZ3JpZDQxMzYiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSIwLDExODAiCiAgICAgICBvcmllbnRhdGlvbj0iMSwwIgogICAgICAgaWQ9Imd1aWRlNDEzOCIgLz4KICAgIDxzb2RpcG9kaTpndWlkZQogICAgICAgcG9zaXRpb249Ii01ODAsMTAwMCIKICAgICAgIG9yaWVudGF0aW9uPSIwLDEiCiAgICAgICBpZD0iZ3VpZGU0MTQwIiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iNTAsMTA0NSIKICAgICAgIG9yaWVudGF0aW9uPSIxLDAiCiAgICAgICBpZD0iZ3VpZGU0MTQyIiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iLTIwLDk1MC4wMDAwMiIKICAgICAgIG9yaWVudGF0aW9uPSIwLDEiCiAgICAgICBpZD0iZ3VpZGU0MTQ0IiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iMjUsMTAwOSIKICAgICAgIG9yaWVudGF0aW9uPSIxLDAiCiAgICAgICBpZD0iZ3VpZGU0MTUwIiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iMTYsOTc1LjAwMDAyIgogICAgICAgb3JpZW50YXRpb249IjAsMSIKICAgICAgIGlkPSJndWlkZTQxNTIiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSIxMSwxMDA1IgogICAgICAgb3JpZW50YXRpb249IjAsMSIKICAgICAgIGlkPSJndWlkZTQxNTgiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIHBvc2l0aW9uPSItNSw5OTEuMDAwMDIiCiAgICAgICBvcmllbnRhdGlvbj0iMSwwIgogICAgICAgaWQ9Imd1aWRlNDE2MiIgLz4KICAgIDxzb2RpcG9kaTpndWlkZQogICAgICAgcG9zaXRpb249IjU1LDk5Ni4wMDAwMiIKICAgICAgIG9yaWVudGF0aW9uPSIxLDAiCiAgICAgICBpZD0iZ3VpZGU0MTY2IiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iMTAsMTAxMCIKICAgICAgIG9yaWVudGF0aW9uPSIxLDAiCiAgICAgICBpZD0iZ3VpZGU0MTcwIiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iNDAsMTAwNSIKICAgICAgIG9yaWVudGF0aW9uPSIxLDAiCiAgICAgICBpZD0iZ3VpZGU0MTcyIiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iLTE1LDk5MC4wMDAwMiIKICAgICAgIG9yaWVudGF0aW9uPSIwLDEiCiAgICAgICBpZD0iZ3VpZGU0MTc0IiAvPgogICAgPHNvZGlwb2RpOmd1aWRlCiAgICAgICBwb3NpdGlvbj0iLTE1LDk2MC4wMDAwMiIKICAgICAgIG9yaWVudGF0aW9uPSIwLDEiCiAgICAgICBpZD0iZ3VpZGU0MTc2IiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTciPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpZD0ibGF5ZXIxIj4KICAgIDxjaXJjbGUKICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxLjcwMDAwMDA1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgaWQ9InBhdGg0MTQ2IgogICAgICAgY3g9IjI3LjUiCiAgICAgICBjeT0iNzkuODYyMjA2IgogICAgICAgcj0iMi41IiAvPgogICAgPGVsbGlwc2UKICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE5NzkwNjAyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgaWQ9InBhdGg0MTQ4IgogICAgICAgY3g9IjI1LjAyNDkyIgogICAgICAgY3k9Ijc3LjM4ODE4NCIKICAgICAgIHJ4PSIyMy40MDEwNDkiCiAgICAgICByeT0iMjMuNDAxMDQ3IiAvPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjMuMTQ2NDI2NDQ7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Im0gMjUuMDYzMTM1LDQ3LjM2NzI4MSAwLDUuNSIKICAgICAgIGlkPSJwYXRoNDE1NCIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiIC8+CiAgICA8cGF0aAogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIGlkPSJwYXRoNDE1NiIKICAgICAgIGQ9Im0gMjQuOTg5OTIxLDEwMS44NTIzOCAwLDUuNSIKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjMuMTQ2NDI2NDQ7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgIDxwYXRoCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgaWQ9InBhdGg0MTYwIgogICAgICAgZD0ibSAwLjUwNzQ0ODk5LDc3LjQyMjk2NyAtNS40OTk5OTk5OSwwIgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6My4xNDY0MjY0NDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjMuMTQ2NDI2NDQ7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Im0gNTUuMDE4ODA4LDc3LjQxNTMwNyAtNS41LDAiCiAgICAgICBpZD0icGF0aDQxNjQiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgogICAgPGNpcmNsZQogICAgICAgc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMwMDAwMDA7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBpZD0icGF0aDQxNjgiCiAgICAgICBjeD0iMjUuMDM5OTcyIgogICAgICAgY3k9Ijc3LjMzNzc4NCIKICAgICAgIHI9IjEyLjUiIC8+CiAgPC9nPgo8L3N2Zz4K) !important;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iNjAiCiAgIGhlaWdodD0iNjAiCiAgIHZpZXdCb3g9IjAgMCA2MC4wMDAwMDEgNjAuMDAwMDAxIgogICBpZD0ic3ZnNDE2MiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9jYXRpb24taWNvbi1ibGFjay5zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM0MTY0IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0iYmFzZSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp6b29tPSIxMC42MDQxNjYiCiAgICAgaW5rc2NhcGU6Y3g9IjI5LjYyMjgyMyIKICAgICBpbmtzY2FwZTpjeT0iMjkuMzM3OTg4IgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJweCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllcjEiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIHVuaXRzPSJweCIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjEzOTEiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iODc2IgogICAgIGlua3NjYXBlOndpbmRvdy14PSI0OSIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iMjQiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGE0MTY3Ij4KICAgIDxyZGY6UkRGPgogICAgICA8Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+CiAgICAgICAgPGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPgogICAgICAgIDxkYzp0aXRsZT48L2RjOnRpdGxlPgogICAgICA8L2NjOldvcms+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZwogICAgIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiCiAgICAgaWQ9ImxheWVyMSIKICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC05OTIuMzYyMTYpIj4KICAgIDxnCiAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0Ljk3MTg4NTUsOTQ1LjAzMTMyKSIKICAgICAgIGlkPSJnNDcxMCI+CiAgICAgIDxjaXJjbGUKICAgICAgICAgcj0iMi41IgogICAgICAgICBjeT0iNzkuODYyMjA2IgogICAgICAgICBjeD0iMjcuNSIKICAgICAgICAgaWQ9InBhdGg0MTQ2IgogICAgICAgICBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS43MDAwMDAwNTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPGVsbGlwc2UKICAgICAgICAgcnk9IjIzLjQwMTA0NyIKICAgICAgICAgcng9IjIzLjQwMTA0OSIKICAgICAgICAgY3k9Ijc3LjM4ODE4NCIKICAgICAgICAgY3g9IjI1LjAyNDkyIgogICAgICAgICBpZD0icGF0aDQxNDgiCiAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDpub25lO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE5NzkwNjAyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDQxNTQiCiAgICAgICAgIGQ9Im0gMjUuMDYzMTM1LDQ3LjM2NzI4MSAwLDUuNSIKICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6My4xNDY0MjY0NDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbDpub25lO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE0NjQyNjQ0O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgIGQ9Im0gMjQuOTg5OTIxLDEwMS44NTIzOCAwLDUuNSIKICAgICAgICAgaWQ9InBhdGg0MTU2IgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iZmlsbDpub25lO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDozLjE0NjQyNjQ0O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgIGQ9Im0gMC41MDc0NDg5OSw3Ny40MjI5NjcgLTUuNDk5OTk5OTksMCIKICAgICAgICAgaWQ9InBhdGg0MTYwIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgogICAgICA8cGF0aAogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDQxNjQiCiAgICAgICAgIGQ9Im0gNTUuMDE4ODA4LDc3LjQxNTMwNyAtNS41LDAiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjMuMTQ2NDI2NDQ7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPGNpcmNsZQogICAgICAgICByPSIxMi41IgogICAgICAgICBjeT0iNzcuMzM3Nzg0IgogICAgICAgICBjeD0iMjUuMDM5OTcyIgogICAgICAgICBpZD0icGF0aDQxNjgiCiAgICAgICAgIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   background-size: 50px 50px !important;
 }
 
-.control-locate-icon {
-  /* background-image: url(../images/location-icon-common.svg) !important;
-  background-size: 50px 50px !important; */
+.leaflet-control-locate a {
   background-color: transparent !important;
 }
-
-/* .control-locate-icon::after {
-  background-image: url(../images/location-icon-common.svg) !important;
-  background-size: 50px 50px !important;
-} */
 .leaflet-control-layers {
   background-color: rgba(146, 173, 148, 0.5) !important;
   border: 2px solid #0B3142 !important;
@@ -928,11 +908,7 @@ width: 7px;
     bottom: calc(100vh - 95vh) !important;
     right: 0 !important;
   }
-}.leaflet-container {
-  height: 100vh;
-  width: 100%;
-}
-/* Customize Leaflet zoom-control default styles */
+}/* Customize Leaflet zoom-control default styles */
 
 .leaflet-control-zoom {
   border: none !important;
@@ -1037,6 +1013,10 @@ width: 7px;
     top: calc(100vh / 2);
     left: calc(100vw - 19vw);
   }
+}
+.leaflet-container {
+  height: 100vh;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map*/
