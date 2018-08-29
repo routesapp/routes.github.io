@@ -15,73 +15,6 @@
 .leaflet-control-locate.active.following a {
   color: #FC8428 !important;
 }
-.react-tabs__tab-list {
-  margin: 0 0 10px;
-  padding: 0;
-}
-
-.react-tabs__tab {
-  display: inline-block;
-  width: 33.33%;
-  background-color: #859E87;
-  /* border: 1px solid transparent;
-  border-bottom: none; */
-  border-right: 1px solid #637B86;
-  border-bottom: 1px solid #637B86;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  bottom: 2px;
-  position: relative;
-  list-style: none;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.react-tabs__tab:last-of-type {
-  border-right: none;
-}
-
-.react-tabs__tab--selected {
-  background-color: #92AD94;
-  border-top: 3px solid #0B3142;
-  border-bottom: none;
-}
-
-.react-tabs__tab--disabled {
-  color: GrayText;
-  cursor: default;
-}
-
-.react-tabs__tab:focus {
-  /* box-shadow: 0 0 5px hsl(208, 99%, 50%);
-  border-color: hsl(208, 99%, 50%); */
-  /* outline: 1px; */
-  /* Add new styles for focus on keybiard */
-}
-
-.react-tabs__tab:focus:after {
-  content: "";
-  position: absolute;
-  height: 5px;
-  /* left: -4px;
-  right: -4px; */
-  bottom: -5px;
-  background: #92AD94;;
-}
-
-.react-tabs__tab-panel {
-  display: none;
-}
-
-.react-tabs__tab-panel--selected {
-  /* display: block; */
-  display: flex;
-  flex-wrap: wrap;
-}
 /* required styles */
 
 .leaflet-pane,
@@ -704,5 +637,72 @@
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+.react-tabs__tab-list {
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  width: 33.33%;
+  background-color: #859E87;
+  /* border: 1px solid transparent;
+  border-bottom: none; */
+  border-right: 1px solid #637B86;
+  border-bottom: 1px solid #637B86;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  bottom: 2px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.react-tabs__tab:last-of-type {
+  border-right: none;
+}
+
+.react-tabs__tab--selected {
+  background-color: #92AD94;
+  border-top: 3px solid #0B3142;
+  border-bottom: none;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  /* box-shadow: 0 0 5px hsl(208, 99%, 50%);
+  border-color: hsl(208, 99%, 50%); */
+  /* outline: 1px; */
+  /* Add new styles for focus on keybiard */
+}
+
+.react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  /* left: -4px;
+  right: -4px; */
+  bottom: -5px;
+  background: #92AD94;;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  /* display: block; */
+  display: flex;
+  flex-wrap: wrap;
+}
 
 /*# sourceMappingURL=vendors~main.css.map*/
