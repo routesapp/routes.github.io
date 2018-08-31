@@ -435,7 +435,26 @@ a.leaflet-popup-close-button {
   font-weight: 700;
   color: #1C2833;
 }
-.add-comment-button {
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #92AD94;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color:  #2F2235; */
+  /* color: #262730; */
+  /* color: #36558F; */
+  color: #0B3142;
+}
+
+.add-button-img {
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}.add-comment-button {
   cursor: pointer;
   font-size: 10px;
   display: flex;
@@ -460,25 +479,56 @@ a.leaflet-popup-close-button {
     text-transform: uppercase;
     font-weight: 700;
   }
-}.add-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #92AD94;
-  cursor: pointer;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  text-transform: uppercase;
-  /* color:  #2F2235; */
-  /* color: #262730; */
-  /* color: #36558F; */
-  color: #0B3142;
+}.image-section-wrapper {
+  flex: 1 1 auto;
+  padding: 0 0 5px 5px;
+  position: relative;
+  width: 30%;
+  border: 1px solid red; /* Remove it for production */
+}.description-section-wrapper {
+  width: calc(100% - 130px);
+  /* flex-grow: 8; */
+  border: 1px solid green;
+  height: 200px;
+  overflow: auto;
 }
 
-.add-button-img {
-  margin-right: 5px;
-  width: 30px;
-  height: 30px;
+.description-section-heading {
+  padding: 0;
+  padding-left: 5px;
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Media queries */
+@media (max-width: 550px) {
+  .description-section-wrapper {
+    width: 100%;
+    height: 125px;
+  }
+
+  .description-section-heading {
+    font-size: 17px;
+  }
+
+  .leaflet-popup-content p {
+    margin-top: 5px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    font-size: 0.95em !important;
+  }
+}.additional-section-wrapper {
+  display: flex;
+  width: 100%;
+  order: 3;
+  padding: 10px;
+  border: 1px solid blue;
+}.avatar-image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #0B3142;
+  border-radius: 50%;
+  margin-top: calc(100% / 5);
 }.popup-image-thumbnail-wrapper {
   overflow: auto;
   transition: width 0.5s ease;
@@ -530,43 +580,7 @@ a.leaflet-popup-close-button {
     opacity: 0;
     transition: opacity .3s 0s, visibility 0s .3s;
   }
-}.image-section-wrapper {
-  flex: 1 1 auto;
-  padding: 0 0 5px 5px;
-  position: relative;
-  width: 30%;
-  border: 1px solid red; /* Remove it for production */
-}.additional-section-wrapper {
-  display: flex;
-  width: 100%;
-  order: 3;
-  padding: 10px;
-  border: 1px solid blue;
-}.avatar-image {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #0B3142;
-  border-radius: 50%;
-  margin-top: calc(100% / 5);
-}.testimonials-section-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: auto;
-  height: 160px;
-  max-height: 160px;
-  overflow: auto;
-}
-
-/* Media queries */
-/* @media (max-width: 320px) {
-  .testimonials-section-wrapper {
-    height: 160px;
-    max-height: 160px;
-    overflow: auto;
-  }
-} */
-@font-face {
+}@font-face {
   font-family: 'Montserrat';
   src: url(9c46095118380d38f12e67c916b427f9.ttf) format("truetype"), 
     url(419735b5bfa2ba28e4797fba3a395265.woff) format("woff"), 
@@ -610,39 +624,25 @@ nav a, button {
 button {
   border: none;
 }
-.description-section-wrapper {
-  width: calc(100% - 130px);
-  /* flex-grow: 8; */
-  border: 1px solid green;
-  height: 200px;
+.testimonials-section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+  height: 160px;
+  max-height: 160px;
   overflow: auto;
 }
 
-.description-section-heading {
-  padding: 0;
-  padding-left: 5px;
-  margin: 0;
-  font-size: 18px;
-}
-
 /* Media queries */
-@media (max-width: 550px) {
-  .description-section-wrapper {
-    width: 100%;
-    height: 125px;
+/* @media (max-width: 320px) {
+  .testimonials-section-wrapper {
+    height: 160px;
+    max-height: 160px;
+    overflow: auto;
   }
-
-  .description-section-heading {
-    font-size: 17px;
-  }
-
-  .leaflet-popup-content p {
-    margin-top: 5px !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    font-size: 0.95em !important;
-  }
-}/* Use !important to override leaflet.css default styles. Solve it another way in the future */
+} */
+/* Use !important to override leaflet.css default styles. Solve it another way in the future */
 .leaflet-popup-content-wrapper {
   padding: 0 !important;
   width: 400px !important;
