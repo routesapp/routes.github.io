@@ -479,6 +479,12 @@ a.leaflet-popup-close-button {
     text-transform: uppercase;
     font-weight: 700;
   }
+}.image-section-wrapper {
+  flex: 1 1 auto;
+  padding: 0 0 5px 5px;
+  position: relative;
+  width: 30%;
+  border: 1px solid red; /* Remove it for production */
 }.popup-image-thumbnail-wrapper {
   overflow: auto;
   transition: width 0.5s ease;
@@ -530,12 +536,6 @@ a.leaflet-popup-close-button {
     opacity: 0;
     transition: opacity .3s 0s, visibility 0s .3s;
   }
-}.image-section-wrapper {
-  flex: 1 1 auto;
-  padding: 0 0 5px 5px;
-  position: relative;
-  width: 30%;
-  border: 1px solid red; /* Remove it for production */
 }.description-section-wrapper {
   width: calc(100% - 130px);
   /* flex-grow: 8; */
